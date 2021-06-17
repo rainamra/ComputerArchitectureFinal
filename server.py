@@ -20,7 +20,7 @@ def client_thread(client, connection):
     print("The new connection was made from IP: " + connection[0] + " and port: " + str(connection[1]))
     while True:
         data = client.recv(HEADER_LENGTH)
-        print("The client said: " + data.decode())
+        print(data.decode())
         reply = data.decode("utf-8")
         if not data:
             break
