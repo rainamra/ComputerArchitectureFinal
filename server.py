@@ -1,55 +1,53 @@
 import socket
 import threading
 import faulthandler; faulthandler.enable()
+class Server:
 
-HOST = '127.0.0.1'
-PORT = 1234
+    clients = []
+    usernames = []
 
-server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server_socket.bind((HOST, PORT))
-server_socket.listen()
+    last_received_msg= ""
 
-clients = []
-usernames = []
+    def __init__(self):
+        self.server_socket = None
+        self.server_listen_init()
 
-def broadcast(message):
-    for client in clients:
-        client.send(message)
+    def server_listen_init(self):
+        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        HOST = '127.0.0.1'
+        PORT = 1234
+        # self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        self.server_socket.bind((HOST, PORT))
+        print("Server is running and listening ...")
+        self.server_socket.listen(5)
+        self.new_client()
 
-def handle(client):
-    while True:
-        try:
-            message = client.recv(1024)
-            print(f"{usernames[clients.index(client)]} says {message.decode()}")
-            broadcast(message)
-        except:
-            index = clients.index(client)
-            clients.remove(client)
-            client.close()
-            username = usernames[index]
-            broadcast(f"{username} has left the chat room!".encode('utf-8'))
-            usernames.remove(username)
-            break
-
-def receive():
+    def receive_messages(self, sckt):
         while True:
-            print("Server is running and listening ...")
-            client, address = server_socket.accept()
-            print(f"Connected with {str(address)}")
+            incoming_load = sckt.recv(256)
+            if not incoming_load:
+                break
+            self.last_received_msg = incoming_load.decode('utf-8')
+            self.broadcast(sckt)  # send to all clients
+        sckt.close()
 
-            client.send("USERNAME".encode('utf-8'))
-            username = client.recv(1024)
+    def broadcast(self, client_sockets):
+        for client in self.clients:
+            socket, (ip, port) = client
+            if socket is not client_sockets:
+                socket.sendall(self.last_received_msg.encode('utf-8'))
 
-            usernames.append(username)
-            clients.append(client)
-
-            print(f"The username of this client is {username}")
-            broadcast(f"New user has connected to the chat room. Say hi to {username}!".encode('utf-8'))
-            client.send("you are now connected!".encode('utf-8'))
-
-            thread = threading.Thread(target=handle, args=(client,))
+    def new_client(self):
+        while True:
+            client = sckt, (ip, port) = self.server_socket.accept()
+            self.add_new_client(client)
+            print('Connected to ', ip, ':', str(port))
+            thread = threading.Thread(target=self.receive_messages, args=(sckt,))
             thread.start()
 
+    def add_new_client(self, client):
+        if client not in self.clients:
+            self.clients.append(client)
 
-receive()
-
+if __name__ == "__main__":
+    Server()
