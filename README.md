@@ -17,3 +17,4 @@ References:
 - https://github.com/BekBrace/TCP-Chat-Room-Python-.git - Basic understanding
 - https://github.com/xMansour/Python-Socket-Programming.git - UI
 - https://github.com/manjurulhoque/python-socket-chat.git - UI
+- https://www.youtube.com/watch?v=sopNW98CRag - Basic understanding & UI
