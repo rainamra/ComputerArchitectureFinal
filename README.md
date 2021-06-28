@@ -12,8 +12,8 @@ Group Members:
 
 Installation Guide:
 - Clone this project from Github and change the directory.
-git clone https://github.com/rainamra/ComputerArchitectureFinal.git
-cd ComputerArchitectureFinal
+  git clone https://github.com/rainamra/ComputerArchitectureFinal.git
+  cd ComputerArchitectureFinal
 - Run the server.py file then "Server is running and listening ..." message will show in the terminal
 - Open another terminal then run client.py file. The GUI will show up.
 - Make sure to fill your username before trying to send a message
