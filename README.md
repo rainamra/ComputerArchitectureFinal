@@ -7,7 +7,7 @@ Description:
 - Using Tkinter to create simple user interface
 
 Group Members:
-- Radisa Hussein Rachmadi
+- Radisa Hussein Rachmadi - 2301891752
 - Rainamira Azzahra - 2301900391
 
 Installation Guide:
