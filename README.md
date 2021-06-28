@@ -11,7 +11,13 @@ Group Members:
 - Rainamira Azzahra - 2301900391
 
 Installation Guide:
-- Clone this repository on your local environment
+- Clone this project from Github and change the directory.
+git clone https://github.com/rainamra/ComputerArchitectureFinal.git
+cd ComputerArchitectureFinal
+- Run the server.py file then "Server is running and listening ..." message will show in the terminal
+- Open another terminal then run client.py file. The GUI will show up.
+- Make sure to fill your username before trying to send a message
+- The program will notify you if there's a new user/client join the chat room
 
 References:
 - https://github.com/BekBrace/TCP-Chat-Room-Python-.git - Basic understanding
