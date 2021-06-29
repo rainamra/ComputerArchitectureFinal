@@ -25,6 +25,15 @@ How to Run:
 - The program will notify you if there's a new user/client join the chat room
 - Every client will be able to send a message and receive any message sent by any one of the clients
 
+Contribution:
+=> RAINAMIRA AZZAHRA
+- Worked on server.py
+- Worked on the multithreading used in Client.py
+
+=> RADISA HUSSEIN
+- Worked on Client Tkinter UI implementation
+- Bug fixing on Client issues when connecting and listening to server
+
 References:
 - https://github.com/BekBrace/TCP-Chat-Room-Python-.git - Basic understanding
 - https://github.com/xMansour/Python-Socket-Programming.git - UI
