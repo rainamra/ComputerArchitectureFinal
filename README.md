@@ -12,7 +12,9 @@ Group Members:
 
 Installation Guide:
 - Clone this project from Github and change the directory.
+
   git clone https://github.com/rainamra/ComputerArchitectureFinal.git
+  
   cd ComputerArchitectureFinal
   
 How to Run:
