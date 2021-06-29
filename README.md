@@ -25,6 +25,8 @@ How to Run:
 - The program will notify you if there's a new user/client join the chat room
 - Every client will be able to send a message and receive any message sent by any one of the clients
 
+<img width="1144" alt="Screen Shot 2021-06-28 at 22 35 39" src="https://user-images.githubusercontent.com/56628802/123730410-81ec4e80-d8c0-11eb-9fd9-0949837a1916.png">
+
 Contribution:
 
 => RAINAMIRA AZZAHRA
